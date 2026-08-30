@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f5f7ff;
+  --color-brand-100: #ebf0ff;
+  --color-brand-200: #d5e0ff;
+  --color-brand-300: #b2c7ff;
+  --color-brand-400: #84a2ff;
+  --color-brand-500: #5175ff;
+  --color-brand-600: #324eff;
+  --color-brand-700: #233ae0;
+  --color-brand-800: #1d2eb3;
+  --color-brand-900: #1b278e;
+  --color-brand-950: #101656;
+
+  --color-dark-bg: #090D16;
+  --color-dark-card: #111827;
+  --color-dark-border: #1F2937;
+  --color-dark-hover: #1F2937;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-200;
+  }
+  
+  body.dark {
+    @apply bg-dark-bg text-slate-100;
+  }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.15);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Custom animations for premium micro-interactions */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom utility for glassmorphism panels */
+.glass-panel {
+  @apply backdrop-blur-md bg-white/70 border border-slate-200/80 shadow-sm;
+}
+
+.dark .glass-panel {
+  @apply backdrop-blur-md bg-slate-900/70 border border-slate-800/80 shadow-md;
+}
